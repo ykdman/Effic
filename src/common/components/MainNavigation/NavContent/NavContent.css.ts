@@ -11,6 +11,8 @@ export const navContentWrapper = style({
 export const navContent = style({
   color: vars.color.black,
   fontSize: vars.fontSize.T2,
+  fontFamily: "sans-serif",
+  fontWeight: 600,
   transition: "0.2s ease-in-out",
   width: "max-content",
   height: "100%",

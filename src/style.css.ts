@@ -30,6 +30,9 @@ export const vars = createGlobalTheme(":root", {
       weight: "400",
       style: "normal",
     },
+    anton: {
+      family: `"Anton", sans-serif`,
+    },
   },
   fontSize: {
     T1: "1rem",
