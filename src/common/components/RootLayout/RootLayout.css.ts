@@ -1,5 +1,9 @@
 import { style } from "@vanilla-extract/css";
 
-export const title = style({
-  color: "#E90074",
+export const mainWrapper = style({
+  position: "relative",
+  top: "76px",
+  width: "100vw",
+  height: "100vh",
+  maxHeight: "max-content",
 });
