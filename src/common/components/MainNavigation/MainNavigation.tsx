@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { contents } from "../../../utils/contents";
 import {
   header,
@@ -5,6 +6,7 @@ import {
   navContents,
   title,
   headerSub,
+  titleText,
 } from "./MainNavigation.css";
 import NavContent from "./NavContent/NavContent";
 
@@ -13,7 +15,9 @@ const MainNavigation = () => {
     <header className={navigationWrapper}>
       <div className={header}>
         <div className={title}>
-          <h1>Effic</h1>
+          <Link to="/" className={titleText}>
+            <h1>Effic</h1>
+          </Link>
         </div>
       </div>
       <nav className={navContents}>

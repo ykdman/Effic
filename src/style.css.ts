@@ -8,7 +8,13 @@ export const vars = createGlobalTheme(":root", {
     primary: "rgb(58, 193, 165);",
     dark: "#252928",
     brown: "#645955",
-    forest: "#1d4239",
+    forest: {
+      basic: "#1d4239",
+      sub: "#3F5A56",
+      light: "#5A877E",
+    },
+
+    black: "#000",
   },
   textColor: {
     bright: "#F7F9F2",
@@ -27,8 +33,9 @@ export const vars = createGlobalTheme(":root", {
   },
   fontSize: {
     T1: "1rem",
-    T2: "1.8rem",
-    T3: "2rem",
+    T2: "1.3rem",
+    T3: "1.8rem",
+    T4: "2rem",
     big1: "3rem",
     big2: "4rem",
   },
