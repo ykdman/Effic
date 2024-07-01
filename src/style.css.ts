@@ -13,7 +13,7 @@ export const vars = createGlobalTheme(":root", {
       sub: "#3F5A56",
       light: "#5A877E",
     },
-
+    white: "#fff",
     black: "#000",
   },
   textColor: {
@@ -47,5 +47,9 @@ export const vars = createGlobalTheme(":root", {
     big2: "15px",
     medium: "10px",
     small: "5px",
+    homeCard: "30px",
+  },
+  shadow: {
+    basic: "10px 10px 10px rgb(0,0,0, 0.3)",
   },
 });

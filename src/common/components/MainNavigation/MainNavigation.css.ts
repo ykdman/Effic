@@ -2,6 +2,7 @@ import { style } from "@vanilla-extract/css";
 import { vars } from "../../../style.css";
 
 export const navigationWrapper = style({
+  zIndex: 100,
   width: "100%",
   height: "76px",
   minHeight: "max-content",
