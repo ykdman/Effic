@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react";
 import { getCurrentDate } from "../../utils/func";
-import { useGetUserTodos } from "../../hooks/useGetUserTodos";
-
-type HomeProps = {};
+import { useGetUserTodos } from "../../hooks";
 
 const Home = () => {
   const [userTodoData, setUserTodoData] = useState(null);
