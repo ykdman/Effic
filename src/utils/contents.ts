@@ -1,6 +1,6 @@
-import { TContents } from "../types/index.ts";
+import { TContent } from "../types/index.ts";
 
-export const contents: TContents[] = [
+export const contents: TContent[] = [
   { name: "ToDo", path: "/todo" },
   { name: "Calender", path: "/calender" },
   { name: "Guide", path: "/guide" },

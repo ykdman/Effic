@@ -17,9 +17,10 @@ export const navigationWrapper = style({
 });
 
 export const header = style({
-  marginLeft: vars.space.big2,
+  // marginLeft: vars.space.big2,
   marginRight: vars.space.big2,
-  flexGrow: "1",
+  flexGrow: "0.5",
+  minWidth: "max-content",
 });
 export const title = style({
   fontFamily: vars.font.title.family,
@@ -47,14 +48,14 @@ export const navContents = style({
   justifyContent: "space-around",
   minWidth: "max-content",
   width: "300px",
-  flexGrow: "1.5",
+  flexGrow: "1",
 });
 
 export const headerSub = style({
   fontFamily: vars.font.tiny.family,
   color: vars.color.forest.basic,
   fontSize: vars.fontSize.T2,
-  flexGrow: "1",
+  flexGrow: "0.7",
   padding: `0 ${vars.space.big1}`,
   display: "flex",
   justifyContent: "center",

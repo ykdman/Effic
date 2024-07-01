@@ -1,9 +1,9 @@
 import { FC } from "react";
-import { TContents } from "../../../../types";
+import { TContent } from "../../../../types";
 import { NavLink } from "react-router-dom";
 import { navContent, navContentWrapper } from "./NavContent.css";
 
-const NavContent: FC<TContents> = ({ name, path }) => {
+const NavContent: FC<TContent> = ({ name, path }) => {
   return (
     <div className={navContentWrapper}>
       <NavLink className={navContent} to={path}>
