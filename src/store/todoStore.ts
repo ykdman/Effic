@@ -1,3 +1,4 @@
+import { produce } from "immer";
 import { create } from "zustand";
 import { devtools, persist } from "zustand/middleware";
 
@@ -9,7 +10,7 @@ export interface ITodo {
   done: boolean;
 }
 
-interface IStore {
+interface ITodoStore {
   todos: ITodo[];
   addTodo: (todo: ITodo) => void;
 }
@@ -43,13 +44,17 @@ const initialTodos: ITodo[] = [
 //   addTodo: (todo: ITodo) => set((state) => ({ todos: [...state.todos, todo] })),
 // }));
 
-export const useTodoStore = create<IStore>()(
+export const useTodoStore = create<ITodoStore>()(
   devtools(
     persist(
       (set) => ({
         todos: initialTodos,
         addTodo: (todo: ITodo) =>
-          set((state) => ({ todos: [...state.todos, todo] })),
+          set(
+            produce((state: ITodoStore) => {
+              state.todos.push(todo);
+            })
+          ),
       }),
       { name: "todoStore" }
     )

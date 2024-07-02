@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { ITodo } from "../../../store";
+import { ITodo } from "../../../store/todoStore";
 
 type TTodoTaskProps = {
   todo: ITodo;

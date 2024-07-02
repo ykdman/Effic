@@ -9,7 +9,6 @@ export const homeWrapper = style({
 
 export const taskWrapper = style({
   minWidth: "max-content",
-
   display: "flex",
   justifyContent: "space-around",
 });
@@ -31,7 +30,7 @@ export const taskState = style({
   border: `solid 1px ${vars.color.black}`,
   backgroundColor: vars.color.white,
   borderRadius: 20,
-  flexGrow: "2",
+  flexGrow: "1",
   padding: `${vars.space.big2} ${vars.space.big1}`,
   minWidth: "max-content",
   boxShadow: vars.shadow.basic,
