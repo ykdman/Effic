@@ -16,12 +16,12 @@ Hope to provide you with efficiency.
 - [React](https://react.dev/)
 - [Typescript](https://www.typescriptlang.org/)
 - [Vite](https://ko.vitejs.dev/guide/)
-- [Tailwind](https://tailwindcss.com/)
 - [React-Router](https://reactrouter.com/en/main)
+- [vanilla-extract](https://vanilla-extract.style/)
 
 ### State Management
 
-- Not Yet 😂
+- [Zustand](https://docs.pmnd.rs/zustand/getting-started/introduction)
 
 ## Project Architecture
 
