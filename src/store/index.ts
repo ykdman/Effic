@@ -1,4 +1,5 @@
 import { create } from "zustand";
+import { devtools, persist } from "zustand/middleware";
 
 export interface ITodo {
   id: string;
@@ -37,7 +38,20 @@ const initialTodos: ITodo[] = [
   },
 ];
 
-export const useTodoStore = create<IStore>()((set) => ({
-  todos: initialTodos,
-  addTodo: (todo: ITodo) => set((state) => ({ todos: [...state.todos, todo] })),
-}));
+// export const useTodoStore = create<IStore>()((set) => ({
+//   todos: initialTodos,
+//   addTodo: (todo: ITodo) => set((state) => ({ todos: [...state.todos, todo] })),
+// }));
+
+export const useTodoStore = create<IStore>()(
+  devtools(
+    persist(
+      (set) => ({
+        todos: initialTodos,
+        addTodo: (todo: ITodo) =>
+          set((state) => ({ todos: [...state.todos, todo] })),
+      }),
+      { name: "todoStore" }
+    )
+  )
+);
