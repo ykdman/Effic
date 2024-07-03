@@ -8,7 +8,8 @@ export const appContainer = style({
 export const contentWrapper = style({
   position: "absolute",
   top: "86px",
-  width: "100vw",
-  height: "100vh",
+  width: "100%",
+  // maxWidth: "120rem",
+  height: "100%",
   maxHeight: "max-content",
 });

@@ -12,10 +12,11 @@ export const homeSection = style({
   // justifyContent: "center",
   // gridTemplateRows: "1fr 1fr",
   gridTemplateColumns: "300px 1fr 1fr 300px",
-  gridAutoColumns: "minmax(150px, auto)",
+  gridAutoColumns: "minmax(300px, auto)",
   gridAutoRows: "minmax(200px, auto)",
   padding: vars.space.big1,
   minHeight: "max-content",
+  // maxWidth: "120rem",
   height: "100vh",
   // gap: 10, // 간격 설정
   rowGap: 20,

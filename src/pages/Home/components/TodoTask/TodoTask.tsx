@@ -9,7 +9,7 @@ const TodoTask: React.FC<TTodoTaskProps> = ({ todo }) => {
   const date = new Date(todo.date).toLocaleDateString("ko");
   return (
     <>
-      <div>{todo.name}</div>
+      <div>{todo.content}</div>
       {/* <div>{todo.date}</div> */}
       <div>{date}</div>
       <div>{todo.done}</div>

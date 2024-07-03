@@ -1,11 +1,27 @@
-import React, { memo } from "react";
-import { useTodoStore } from "../../../../store/todoStore";
+import React, { memo, useState } from "react";
+import { ITodo, useTodoStore } from "../../../../store/todoStore";
+import { useLoaderData } from "react-router-dom";
+import Todos from "./Todos/Todos";
+import { getCurrentDate } from "../../../../utils/func";
 
 const MyTodo: React.FC = () => {
-  const today = new Date().toLocaleDateString("ko", {});
-  // const todos = useTodoStore((state) => state.todos.filter((todo) => todo.date ===  ));
+  const today = getCurrentDate();
 
-  return <div>오늘 할 일</div>;
+  const todos = useTodoStore((state) => state.todos);
+
+  const [todayTodos, setTodayTodos] = useState<ITodo[]>(
+    todos.filter((todo) => todo.date === today)
+  );
+
+  return (
+    <div>
+      <div>
+        <h3>오늘 할 일</h3>
+      </div>
+      <Todos todos={todayTodos} />
+      {/* 오늘 할 일 */}
+    </div>
+  );
 };
 
 export default memo(MyTodo);

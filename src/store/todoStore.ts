@@ -7,7 +7,7 @@ import { getCurrentDate } from "../utils/func";
 export interface ITodo {
   id: string;
   date: string;
-  name: string;
+  content: string;
   priority: number;
   done: boolean;
 }
@@ -20,28 +20,28 @@ interface ITodoStore {
 const initialTodos: ITodo[] = [
   {
     id: "todo-kdman-1",
-    name: "밥먹기",
+    content: "밥먹기",
     priority: 1,
     date: "2024-06-28",
     done: false,
   },
   {
     id: "todo-kdman-2",
-    name: "잠자기",
+    content: "잠자기",
     priority: 2,
     date: "2024-06-28",
     done: false,
   },
   {
     id: "todo-kdman-3",
-    name: "장보기",
+    content: "장보기",
     priority: 3,
     date: "2024-06-28",
     done: false,
   },
   {
     id: v4(),
-    name: "운동하기",
+    content: "운동하기",
     priority: 3,
     date: getCurrentDate(),
     done: false,
@@ -62,6 +62,6 @@ export const useTodoStore = create<ITodoStore>()(
           state.todos.push(todo);
         }),
     })),
-    { name: "todoStore" }
+    { content: "todoStore" }
   )
 );
