@@ -1,11 +1,11 @@
-import React, { FC } from "react";
-import { ITodo } from "../../../store/todoStore";
+import React from "react";
+import { ITodo } from "../../../../store/todoStore";
 
 type TTodoTaskProps = {
   todo: ITodo;
 };
 
-const TodoTask: FC<TTodoTaskProps> = ({ todo }) => {
+const TodoTask: React.FC<TTodoTaskProps> = ({ todo }) => {
   const date = new Date(todo.date).toLocaleDateString("ko");
   return (
     <>

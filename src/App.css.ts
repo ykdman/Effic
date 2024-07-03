@@ -5,8 +5,8 @@ export const appContainer = style({
   minHeight: "max-content",
 });
 
-export const mainWrapper = style({
-  position: "relative",
+export const contentWrapper = style({
+  position: "absolute",
   top: "86px",
   width: "100vw",
   height: "100vh",

@@ -1,6 +1,8 @@
-import { produce } from "immer";
+import { v4 } from "uuid";
 import { create } from "zustand";
-import { devtools, persist } from "zustand/middleware";
+import { devtools } from "zustand/middleware";
+import { immer } from "zustand/middleware/immer";
+import { getCurrentDate } from "../utils/func";
 
 export interface ITodo {
   id: string;
@@ -20,21 +22,28 @@ const initialTodos: ITodo[] = [
     id: "todo-kdman-1",
     name: "밥먹기",
     priority: 1,
-    date: "2024-06-28T07:32:23.518Z",
+    date: "2024-06-28",
     done: false,
   },
   {
     id: "todo-kdman-2",
     name: "잠자기",
     priority: 2,
-    date: "2024-06-28T05:32:23.518Z",
+    date: "2024-06-28",
     done: false,
   },
   {
     id: "todo-kdman-3",
     name: "장보기",
     priority: 3,
-    date: "2024-06-28T07:35:23.518Z",
+    date: "2024-06-28",
+    done: false,
+  },
+  {
+    id: v4(),
+    name: "운동하기",
+    priority: 3,
+    date: getCurrentDate(),
     done: false,
   },
 ];
@@ -46,17 +55,13 @@ const initialTodos: ITodo[] = [
 
 export const useTodoStore = create<ITodoStore>()(
   devtools(
-    persist(
-      (set) => ({
-        todos: initialTodos,
-        addTodo: (todo: ITodo) =>
-          set(
-            produce((state: ITodoStore) => {
-              state.todos.push(todo);
-            })
-          ),
-      }),
-      { name: "todoStore" }
-    )
+    immer((set) => ({
+      todos: initialTodos,
+      addTodo: (todo: ITodo) =>
+        set((state: ITodoStore) => {
+          state.todos.push(todo);
+        }),
+    })),
+    { name: "todoStore" }
   )
 );
