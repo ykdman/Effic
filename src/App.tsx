@@ -2,12 +2,29 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import RootLayout from "./layout/RootLayout";
 import { appContainer } from "./App.css";
 import Home from "./pages/Home/Home";
+import TodoPage from "./pages/TodoPage/TodoPage";
+import CalenderPage from "./pages/Calender/CalenderPage";
+import TimerPage from "./pages/Timer/TimerPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <RootLayout />,
-    children: [{ index: true, element: <Home /> }],
+    children: [
+      { index: true, element: <Home /> },
+      {
+        path: "/todo",
+        element: <TodoPage />,
+      },
+      {
+        path: "/calender",
+        element: <CalenderPage />,
+      },
+      {
+        path: "/timer",
+        element: <TimerPage />,
+      },
+    ],
   },
 ]);
 

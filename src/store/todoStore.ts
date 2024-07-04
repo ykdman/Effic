@@ -61,6 +61,12 @@ export const useTodoStore = create<ITodoStore>()(
         set((state: ITodoStore) => {
           state.todos.push(todo);
         }),
+      toggleTodoDone: (todoId: string) =>
+        set((state: ITodoStore) => {
+          state.todos = state.todos.map((todo: ITodo) =>
+            todo.id === todoId ? { ...todo, done: !todo.done } : todo
+          );
+        }),
     })),
     { content: "todoStore" }
   )

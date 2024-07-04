@@ -31,9 +31,11 @@ export const targetArea = style({
   border: "1px solid black",
   backgroundColor: vars.color.white,
   borderRadius: 20,
+  overflow: "auto",
   padding: `${vars.space.big2}`,
   boxShadow: vars.shadow.basic,
   minWidth: "400px",
+  minHeight: "450px",
 });
 
 export const taskArea = style({
@@ -54,6 +56,7 @@ export const taskArea = style({
 
 export const promiseArea = style({
   gridArea: "promise",
+  minHeight: "450px",
   width: "100%",
   // maxWidth: "600px",
   height: "auto",
@@ -63,4 +66,5 @@ export const promiseArea = style({
   borderRadius: 20,
   padding: vars.space.big2,
   boxShadow: vars.shadow.basic,
+  overflow: "auto",
 });

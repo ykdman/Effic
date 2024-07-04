@@ -23,6 +23,8 @@ const initialTargets: TTarget[] = [
   },
   { id: v4(), content: "삼시 세끼 잘 챙겨먹기" },
   { id: v4(), content: "10월 까지 -10kg 감량하기" },
+  { id: v4(), content: "기분좋게 잠자기" },
+  // { id: v4(), content: "산책 20분 하기" },
 ];
 
 export const useTargetStore = create<ITargetStroe>()(
@@ -31,7 +33,11 @@ export const useTargetStore = create<ITargetStroe>()(
       targets: initialTargets,
       addTarget: (target: TTarget) =>
         set((state: ITargetStroe) => {
-          state.targets.push(target);
+          if (state.targets.length >= 5) {
+            alert("목표는 5개 까지만 입력할 수 있습니다!");
+          } else {
+            state.targets.push(target);
+          }
           // targets: [...state.targets, target],
         }),
       removeTarget: (targetId: string) =>

@@ -8,3 +8,10 @@ export const targetPannel = style({
 export const targetWrapper = style({
   border: `1px solid ${vars.color.brown}`,
 });
+
+export const targetTitle = style({
+  fontSize: vars.fontSize.T4,
+  textAlign: "center",
+  marginBottom: vars.space.medium,
+  padding: `${vars.space.medium} ${vars.space.small}`,
+});

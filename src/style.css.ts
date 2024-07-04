@@ -49,6 +49,13 @@ export const vars = createGlobalTheme(":root", {
     small: "5px",
     homeCard: "30px",
   },
+  sizeRem: {
+    big1: "5rem",
+    big2: "2.5rem",
+    big3: "2rem",
+    medium: "1.5rem",
+    basic: "1rem",
+  },
   shadow: {
     basic: "10px 10px 10px rgb(0,0,0, 0.3)",
   },
