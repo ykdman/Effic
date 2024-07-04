@@ -1,7 +1,7 @@
 import React, { memo } from "react";
 import { useTargetStore } from "../../../../store/targetStore";
-import Target from "../Target/Target";
-import { targetPannel, targetTitle, targetWrapper } from "./MyTarget.css";
+import Target from "../../../../feature/target/ui/HomeTarget/HomeTarget.tsx";
+import { targetTitle, targetWrapper } from "./MyTarget.css";
 import { TargetInput } from "../../../../feature/target/index.ts";
 
 const MyTarget: React.FC = () => {

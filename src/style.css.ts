@@ -58,5 +58,6 @@ export const vars = createGlobalTheme(":root", {
   },
   shadow: {
     basic: "10px 10px 10px rgb(0,0,0, 0.3)",
+    input: "3px 3px 3px rgb(0,0,0, 0.2)",
   },
 });

@@ -17,16 +17,16 @@ const TargetInput: React.FC = () => {
   const [newTarget, setNewTarget] = useState<string | null>(null);
   const addTargetToStore = useTargetStore((state) => state.addTarget);
 
+  const handleNewTargetClear = () => {
+    setNewTarget("");
+  };
+
   const handleTargetChange = (e: ChangeEvent<HTMLInputElement>) => {
     setNewTarget(e.target.value);
   };
 
-  const hadleNewTargetClear = () => {
-    setNewTarget("");
-  };
-
   const handleAddTarget = () => {
-    if (newTarget === null || newTarget === "undefined") {
+    if (newTarget === null || newTarget === "undefined" || newTarget === "") {
       return;
     }
 
@@ -36,6 +36,7 @@ const TargetInput: React.FC = () => {
     };
 
     addTargetToStore(targetObj);
+    handleNewTargetClear();
   };
 
   return (
@@ -45,11 +46,18 @@ const TargetInput: React.FC = () => {
           className={targetInput}
           type="text"
           onChange={handleTargetChange}
+          placeholder="목표를 입력 하세요 (간단하고 명확하게!)"
+          value={newTarget!}
         />
-      </div>
-      <div className={buttonArea}>
-        <IoIosAddCircle className={addButton} onClick={handleAddTarget} />
-        <MdClear className={clearButton} onClick={hadleNewTargetClear} />
+
+        <div className={buttonArea}>
+          <button className={addButton} onClick={handleAddTarget}>
+            <IoIosAddCircle />
+          </button>
+          <button className={clearButton} onClick={handleNewTargetClear}>
+            <MdClear />
+          </button>
+        </div>
       </div>
     </div>
   );
