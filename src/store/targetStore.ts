@@ -41,6 +41,7 @@ export const useTargetStore = create<ITargetStroe>()(
         }),
       removeTarget: (targetId: string) =>
         set((state: ITargetStroe) => {
+          console.log("지우기");
           state.targets = state.targets.filter(
             (target) => target.id !== targetId
           );
@@ -48,14 +49,14 @@ export const useTargetStore = create<ITargetStroe>()(
       updateTarget: (target: TTarget) =>
         set((state: ITargetStroe) => {
           const { id, content } = target;
-          console.log(id, target);
-          state.targets = state.targets.map((target) =>
-            target.id === id
+          console.log(id, content);
+          state.targets = state.targets.map((t) =>
+            t.id === id
               ? {
                   id: id,
                   content: content,
                 }
-              : target
+              : t
           );
         }),
     })),

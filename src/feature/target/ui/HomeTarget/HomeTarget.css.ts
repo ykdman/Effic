@@ -20,8 +20,9 @@ export const targetContentSpan = style({
   wordBreak: "break-word",
 });
 export const targetContentInput = style({
-  fontSize: vars.fontSize.T3,
+  fontSize: vars.fontSize.T2,
   border: `3px solid ${vars.color.black}`,
+  width: "auto",
 });
 
 export const targetContentTextArea = style({

@@ -18,21 +18,13 @@ type THomeTargetProps = {
   content: string;
 };
 
-type TTargetContent = {
+const TargetContent: React.FC<{
   content: string;
   isEdit: boolean;
   editedTargetContent: string;
   toggleIsEdit: () => void;
   setEditedTargetContent: React.Dispatch<React.SetStateAction<string>>;
-};
-
-type TTargetEditOrConfirmButtonProps = {
-  isEdit: boolean;
-  toggleIsEdit: () => void;
-  updateTargetContent: () => void;
-};
-
-const TargetContent: React.FC<TTargetContent> = ({
+}> = ({
   content,
   isEdit,
   editedTargetContent: editTargetContent,
@@ -46,7 +38,7 @@ const TargetContent: React.FC<TTargetContent> = ({
   };
 
   return isEdit ? (
-    editTargetContent.length > 14 ? (
+    content.length > 14 ? (
       <textarea
         autoFocus
         className={targetContentTextArea}
@@ -68,11 +60,11 @@ const TargetContent: React.FC<TTargetContent> = ({
   );
 };
 
-const TargetEditOrConfirmButton: React.FC<TTargetEditOrConfirmButtonProps> = ({
-  isEdit,
-  toggleIsEdit,
-  updateTargetContent,
-}) => {
+const TargetEditOrConfirmButton: React.FC<{
+  isEdit: boolean;
+  toggleIsEdit: () => void;
+  updateTargetContent: () => void;
+}> = ({ isEdit, toggleIsEdit, updateTargetContent }) => {
   const confirmHandler = () => {
     updateTargetContent();
     toggleIsEdit();
@@ -103,15 +95,10 @@ const HomeTarget: FC<THomeTargetProps> = ({ id, content }) => {
     console.log(id, editedTargetContent);
     if (content !== editedTargetContent) {
       updateTarget({ id: id, content: editedTargetContent });
+    } else {
+      console.log("Test 실행");
     }
   };
-  // const renderEditOrConfirmButton = () => {
-  //   return isEdit ? (
-  //     <FaCheck onClick={handleToggleEdit} />
-  //   ) : (
-  //     <FaPen onClick={handleToggleEdit} />
-  //   );
-  // };
 
   return (
     <div className={homeTargetWrapper}>
