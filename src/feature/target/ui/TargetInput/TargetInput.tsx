@@ -14,7 +14,7 @@ import { v4 } from "uuid";
 import { TTarget } from "../../../../types";
 
 const TargetInput: React.FC = () => {
-  const [newTarget, setNewTarget] = useState<string | null>(null);
+  const [newTarget, setNewTarget] = useState<string>("");
   const addTargetToStore = useTargetStore((state) => state.addTarget);
 
   const handleNewTargetClear = () => {

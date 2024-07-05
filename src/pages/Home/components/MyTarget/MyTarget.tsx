@@ -1,6 +1,6 @@
 import React, { memo } from "react";
 import { useTargetStore } from "../../../../store/targetStore";
-import Target from "../../../../feature/target/ui/HomeTarget/HomeTarget.tsx";
+import HomeTarget from "../../../../feature/target/ui/HomeTarget/HomeTarget.tsx";
 import { targetTitle, targetWrapper } from "./MyTarget.css";
 import { TargetInput } from "../../../../feature/target/index.ts";
 
@@ -14,7 +14,11 @@ const MyTarget: React.FC = () => {
       <div className={targetWrapper}>
         {targets &&
           targets.map((target) => (
-            <Target key={target.id} id={target.id} content={target.content} />
+            <HomeTarget
+              key={target.id}
+              id={target.id}
+              content={target.content}
+            />
           ))}
       </div>
     </>

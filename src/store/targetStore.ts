@@ -1,7 +1,6 @@
-import { produce } from "immer";
 import { v4 } from "uuid";
 import { create } from "zustand";
-import { devtools, persist } from "zustand/middleware";
+import { devtools } from "zustand/middleware";
 import { immer } from "zustand/middleware/immer";
 
 type TTarget = {
@@ -13,7 +12,7 @@ interface ITargetStroe {
   targets: TTarget[];
   addTarget: (target: TTarget) => void;
   removeTarget: (targetId: string) => void;
-  // updateTarget: (target: TTarget) => void;
+  updateTarget: (target: TTarget) => void;
 }
 
 const initialTargets: TTarget[] = [
@@ -49,6 +48,7 @@ export const useTargetStore = create<ITargetStroe>()(
       updateTarget: (target: TTarget) =>
         set((state: ITargetStroe) => {
           const { id, content } = target;
+          console.log(id, target);
           state.targets = state.targets.map((target) =>
             target.id === id
               ? {
