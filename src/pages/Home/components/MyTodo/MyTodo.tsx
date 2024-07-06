@@ -2,7 +2,7 @@ import React, { memo, useState } from "react";
 import { ITodo, useTodoStore } from "../../../../store/todoStore";
 import { useLoaderData } from "react-router-dom";
 import Todos from "./Todos/Todos";
-import { getCurrentDate } from "../../../../utils/func";
+import { getCurrentDate } from "../../../../share/utils/func";
 import { areaTitle } from "../../../../style.css";
 
 const MyTodo: React.FC = () => {

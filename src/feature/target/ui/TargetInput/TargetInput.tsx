@@ -11,7 +11,7 @@ import { IoIosAddCircle } from "react-icons/io";
 import { MdClear } from "react-icons/md";
 import { useTargetStore } from "../../../../store/targetStore";
 import { v4 } from "uuid";
-import { TTarget } from "../../../../types";
+import { TTarget } from "../../../../share/types";
 
 const TargetInput: React.FC = () => {
   const [newTarget, setNewTarget] = useState<string>("");

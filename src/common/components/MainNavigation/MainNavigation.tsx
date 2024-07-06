@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { contents } from "../../../utils/contents";
+import { contents } from "../../../share/utils/contents";
 import {
   header,
   navigationWrapper,

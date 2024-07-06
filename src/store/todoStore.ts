@@ -2,7 +2,7 @@ import { v4 } from "uuid";
 import { create } from "zustand";
 import { devtools } from "zustand/middleware";
 import { immer } from "zustand/middleware/immer";
-import { getCurrentDate } from "../utils/func";
+import { getCurrentDate } from "../share/utils/func";
 
 export interface ITodo {
   id: string;
