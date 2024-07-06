@@ -1,4 +1,4 @@
-import { createGlobalTheme } from "@vanilla-extract/css";
+import { createGlobalTheme, style } from "@vanilla-extract/css";
 
 export const vars = createGlobalTheme(":root", {
   color: {
@@ -60,4 +60,11 @@ export const vars = createGlobalTheme(":root", {
     basic: "10px 10px 10px rgb(0,0,0, 0.3)",
     input: "3px 3px 3px rgb(0,0,0, 0.2)",
   },
+});
+
+export const areaTitle = style({
+  fontSize: vars.fontSize.T4,
+  textAlign: "center",
+  marginBottom: vars.space.medium,
+  padding: `${vars.space.medium} ${vars.space.small}`,
 });

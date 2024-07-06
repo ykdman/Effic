@@ -41,7 +41,7 @@ export const useTargetStore = create<ITargetStroe>()(
         }),
       removeTarget: (targetId: string) =>
         set((state: ITargetStroe) => {
-          console.log("지우기");
+          // console.log("지우기");
           state.targets = state.targets.filter(
             (target) => target.id !== targetId
           );

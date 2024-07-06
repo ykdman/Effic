@@ -73,7 +73,7 @@ const TargetEditOrConfirmButton: React.FC<{
   return isEdit ? (
     // 변경 확인 버튼
 
-    <FaCheck onClick={confirmHandler} />
+    <FaCheck onMouseDown={confirmHandler} />
   ) : (
     // 변경으로 전환 버튼
 

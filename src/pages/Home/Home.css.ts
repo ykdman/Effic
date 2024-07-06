@@ -54,7 +54,7 @@ export const taskArea = style({
   gridColumnEnd: 4,
 });
 
-export const promiseArea = style({
+export const noteArea = style({
   gridArea: "promise",
   minHeight: "450px",
   width: "100%",
@@ -67,4 +67,6 @@ export const promiseArea = style({
   padding: vars.space.big2,
   boxShadow: vars.shadow.basic,
   overflow: "auto",
+  display: "flex",
+  flexDirection: "column",
 });
