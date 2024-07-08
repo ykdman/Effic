@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { modalPortal } from "./ModalPortal.css.ts";
 
 type TModalPortalProps = {
   children: React.ReactNode;
@@ -15,7 +16,10 @@ const ModalPortal: React.FC<TModalPortalProps> = ({ children }) => {
     return null; // 또는 fallback UI를 반환할 수 있습니다.
   }
 
-  return ReactDOM.createPortal(children, el);
+  return ReactDOM.createPortal(
+    <div className={modalPortal}>{children}</div>,
+    el
+  );
 };
 
 export default ModalPortal;

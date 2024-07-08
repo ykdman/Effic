@@ -1,38 +1,41 @@
-import React, { memo, useEffect, useRef } from "react";
+import React from "react";
+import { useNoteStore } from "../../../../store/noteStore";
 import useModalStore from "../../../../store/modalStore";
-import { noteInfoModalDialog } from "./NoteInfoModal.css";
+import {
+  modalBackDrop,
+  modalWrapper,
+  noteModalContent,
+  noteModalHeader,
+} from "./NoteInfoModal.css";
+import { IoMdClose } from "react-icons/io";
 
-const NoteInfoModal = () => {
-  const modalOpenState = useModalStore((state) => state.isOpen);
-  const modalCloseAction = useModalStore((state) => state.modalClose);
-  const dialog = useRef<HTMLDialogElement>(null);
-  const handleCloseModal = () => {
-    dialog.current!.close();
-    modalCloseAction();
+const NoteInfoModal: React.FC = () => {
+  const activeNote = useNoteStore((state) => state.activeNote);
+  const modalOpen = useModalStore((state) => state.isOpen);
+  const modalClose = useModalStore((state) => state.modalClose);
+  const handleBackDropClick = () => {
+    modalClose();
   };
 
-  useEffect(() => {
-    if (modalOpenState) {
-      dialog.current!.showModal();
-    }
-
-    return () => {
-      dialog.current!.close();
-    };
-  }, [modalOpenState]);
-
-  return (
-    <dialog
-      ref={dialog}
-      onClose={modalCloseAction}
-      className={noteInfoModalDialog}
-    >
-      <div className="">
-        <div>모달 테스트</div>
+  return modalOpen ? (
+    <div className={modalWrapper}>
+      <div className={modalBackDrop} onClick={handleBackDropClick}></div>
+      <div className={noteModalContent}>
+        <div className={noteModalHeader}>
+          <h4>My Note</h4>
+          <IoMdClose />
+        </div>
+        <div>
+          <label htmlFor="">Note 제목</label>
+          <input type="text" value={activeNote.title} />
+        </div>
+        <div>modal content</div>
+        <div>
+          <button>x</button>
+        </div>
       </div>
-      <button onClick={handleCloseModal}>Close</button>
-    </dialog>
-  );
+    </div>
+  ) : null;
 };
 
-export default memo(NoteInfoModal);
+export default NoteInfoModal;
