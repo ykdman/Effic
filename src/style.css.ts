@@ -55,6 +55,11 @@ export const vars = createGlobalTheme(":root", {
     big3: "2rem",
     medium: "1.5rem",
     basic: "1rem",
+    L1: "8rem",
+  },
+  buttons: {
+    width: "2.5rem",
+    height: "2rem",
   },
   shadow: {
     basic: "10px 10px 10px rgb(0,0,0, 0.3)",
@@ -67,4 +72,22 @@ export const areaTitle = style({
   textAlign: "center",
   marginBottom: vars.space.medium,
   padding: `${vars.space.medium} ${vars.space.small}`,
+});
+
+export const button = style({
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  cursor: "pointer",
+  border: "none",
+  width: vars.buttons.width,
+  height: vars.buttons.height,
+  transition: "opacity 0.2s",
+  borderRadius: 10,
+  ":hover": {
+    opacity: 0.6,
+  },
+  ":active": {
+    opacity: 0.8,
+  },
 });

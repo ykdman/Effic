@@ -10,12 +10,20 @@ interface INoteState {
   author: string;
   notes: TNote[];
   activeNote: TNote;
+  isNew: boolean;
 }
 
 interface INoteAction {
-  addNote: (title: string, content: string) => void;
+  addNote: ({ title, content }: { title: string; content: string }) => void;
   removeNote: (noteId: string) => void;
   setActiveNote: (noteId: string) => void;
+  updateNote: (
+    noteId: string,
+    updateTitle: string,
+    updateContent: string
+  ) => void;
+  setIsNew: () => void;
+  setIsExist: () => void;
 }
 
 const initialNoteState: TNote[] = [
@@ -31,15 +39,22 @@ const initialNoteState: TNote[] = [
     content: "테스트 노트1 내용",
     title: "테스트 노트1 제목",
   },
+  {
+    id: v4(),
+    date: getCurrentDate(),
+    content: "테스트 노트2",
+    title: "테스트 노트2 제목",
+  },
 ];
 
 export const useNoteStore = create<INoteState & INoteAction>()(
   devtools(
     immer((set) => ({
       author: "user",
+      isNew: false,
       notes: initialNoteState,
       activeNote: initialNoteState[0],
-      addNote: (title: string, content: string) =>
+      addNote: ({ title, content }: { title: string; content: string }) =>
         set((state: INoteState) => {
           state.notes.push({
             id: v4(),
@@ -55,6 +70,30 @@ export const useNoteStore = create<INoteState & INoteAction>()(
       setActiveNote: (noteId: string) =>
         set((state: INoteState) => {
           state.activeNote = state.notes.find((note) => note.id === noteId)!;
+        }),
+      updateNote: (
+        noteId: string,
+        updateTitle: string,
+        updateContent: string
+      ) =>
+        set((state: INoteState) => {
+          state.notes = state.notes.map((note) =>
+            note.id !== noteId
+              ? note
+              : {
+                  ...note,
+                  title: updateTitle,
+                  content: updateContent,
+                }
+          );
+        }),
+      setIsNew: () =>
+        set((state: INoteState) => {
+          state.isNew = true;
+        }),
+      setIsExist: () =>
+        set((state: INoteState) => {
+          state.isNew = false;
         }),
     })),
     { name: "noteStore" }

@@ -24,7 +24,7 @@ export const modalBackDrop = style({
 
 export const noteModalContent = style({
   width: "720px",
-  height: "600px",
+  height: "650px",
   backgroundColor: "#fff",
   position: "absolute",
   borderRadius: 15,
@@ -70,19 +70,90 @@ export const noteModalHeader = style({
 });
 
 export const noteModalTitleArea = style({
-  width: "100%",
   display: "flex",
-  alignItems: "center",
+  flexDirection: "column",
+  alignItems: "flex-start",
 });
 
 export const noteModalTitleLabel = style({
   marginRight: vars.space.big2,
+  fontWeight: 600,
 });
 
-export const noteModalTitle = style({});
+export const noteModalTitle = style({
+  fontSize: vars.fontSize.T1,
+});
 
-export const noteContentArea = style({});
+export const noteContentArea = style({
+  display: "flex",
+  flexDirection: "column",
+  margin: `${vars.space.medium} 0`,
+});
 
-export const footerArea = style({});
+export const noteContentLabel = style({
+  fontWeight: 600,
+});
 
-export const footerButtonArea = style({});
+export const noteContentText = style({
+  resize: "none",
+  overflowY: "auto",
+  fontSize: vars.fontSize.T1,
+  fontWeight: 500,
+  padding: `${vars.space.medium} ${vars.space.small}`,
+});
+
+export const footerArea = style({
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  width: "100%",
+});
+
+export const footerButtonArea = style({
+  marginTop: vars.space.big2,
+  display: "flex",
+  justifyContent: "space-between",
+  alignItems: "center",
+  width: vars.sizeRem.L1,
+  height: vars.sizeRem.big2,
+});
+
+export const footerCloseButton = style({
+  cursor: "pointer",
+  border: "none",
+  width: vars.sizeRem.big2,
+  height: "100%",
+  borderRadius: 10,
+  backgroundColor: vars.color.ground,
+  color: vars.color.black,
+  transition: "opacity 0.2s, transform 0.2s",
+  ":hover": {
+    opacity: 0.9,
+    transform: "scale(1.1)",
+  },
+
+  ":active": {
+    opacity: 1,
+    transform: "scale(1.05)",
+  },
+});
+
+export const footerSaveButton = style({
+  cursor: "pointer",
+  width: vars.sizeRem.big2,
+  height: "100%",
+  border: "none",
+  borderRadius: 10,
+  color: vars.color.white,
+  backgroundColor: vars.color.forest.light,
+  transition: "opacity 0.2s, transform 0.2s",
+  ":hover": {
+    opacity: 0.9,
+    transform: "scale(1.1)",
+  },
+
+  ":active": {
+    opacity: 1,
+    transform: "scale(1.05)",
+  },
+});

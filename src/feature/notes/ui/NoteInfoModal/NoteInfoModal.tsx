@@ -1,4 +1,4 @@
-import React, { act, ChangeEvent, useState } from "react";
+import React, { ChangeEvent, memo, useEffect, useState } from "react";
 import { useNoteStore } from "../../../../store/noteStore";
 import useModalStore from "../../../../store/modalStore";
 import {
@@ -6,9 +6,13 @@ import {
   closeButtonArea,
   footerArea,
   footerButtonArea,
+  footerCloseButton,
+  footerSaveButton,
   modalBackDrop,
   modalWrapper,
   noteContentArea,
+  noteContentLabel,
+  noteContentText,
   noteModalContent,
   noteModalHeader,
   noteModalTitle,
@@ -16,22 +20,56 @@ import {
   noteModalTitleLabel,
 } from "./NoteInfoModal.css";
 import { IoMdClose } from "react-icons/io";
+import { TNote } from "../../../../share/types";
 
-const NoteInfoModal: React.FC = () => {
-  const activeNote = useNoteStore((state) => state.activeNote);
+type TNtoeInfoModalProps = {
+  isNew: boolean;
+  activeNote: TNote;
+};
+const NoteInfoModal: React.FC<TNtoeInfoModalProps> = ({
+  isNew,
+  activeNote,
+}) => {
   const modalOpen = useModalStore((state) => state.isOpen);
   const modalClose = useModalStore((state) => state.modalClose);
+  const addNewNote = useNoteStore((state) => state.addNote);
+  const updateNote = useNoteStore((state) => state.updateNote);
+
+  const [currentNoteTitle, setCurrentNoteTitle] = useState<string>(
+    isNew ? "" : activeNote.title
+  );
+
+  const [currentContent, setCurrentContent] = useState<string>(
+    isNew ? "" : activeNote.content
+  );
   const handleBackDropClick = () => {
     modalClose();
   };
-
-  const [currentNoteTitle, setCurrentNoteTitle] = useState<string>(
-    activeNote.title
-  );
-
   const handleTitleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setCurrentNoteTitle(e.target.value);
   };
+
+  const handleContentChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
+    setCurrentContent(e.target.value);
+  };
+
+  const handleSaveNote = () => {
+    if (isNew) {
+      addNewNote({ title: currentNoteTitle, content: currentContent });
+    } else {
+      updateNote(activeNote.id, currentNoteTitle, currentContent);
+    }
+    modalClose();
+  };
+
+  useEffect(() => {
+    setCurrentNoteTitle(() => {
+      return isNew ? "" : activeNote.title;
+    });
+    setCurrentContent(() => {
+      return isNew ? "" : activeNote.content;
+    });
+  }, [isNew, activeNote]);
 
   return modalOpen ? (
     <div className={modalWrapper}>
@@ -57,11 +95,27 @@ const NoteInfoModal: React.FC = () => {
             onChange={handleTitleChange}
           />
         </div>
-        <div className={noteContentArea}>modal content</div>
+        <div className={noteContentArea}>
+          <label htmlFor="note-content" className={noteContentLabel}>
+            내용
+          </label>
+          <textarea
+            id="note-content"
+            cols={30}
+            rows={20}
+            className={noteContentText}
+            value={currentContent}
+            onChange={handleContentChange}
+          ></textarea>
+        </div>
         <div className={footerArea}>
           <div className={footerButtonArea}>
-            <button>저장</button>
-            <button onClick={modalClose}>닫기</button>
+            <button className={footerCloseButton} onClick={modalClose}>
+              닫기
+            </button>
+            <button className={footerSaveButton} onClick={handleSaveNote}>
+              저장
+            </button>
           </div>
         </div>
       </div>
@@ -69,4 +123,4 @@ const NoteInfoModal: React.FC = () => {
   ) : null;
 };
 
-export default NoteInfoModal;
+export default memo(NoteInfoModal);

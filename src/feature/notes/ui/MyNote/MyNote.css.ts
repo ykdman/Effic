@@ -6,4 +6,13 @@ export const addButtonArea = style({
   justifyContent: "center",
   alignItems: "center",
   width: "100%",
+  marginBottom: vars.space.big1,
+});
+
+export const noteElementWrapper = style({
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+  justifyContent: "flex-start",
+  height: "100%",
 });
