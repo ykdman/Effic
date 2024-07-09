@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { TContent } from "../../../../types";
+import { TContent } from "../../../../share/types";
 import { NavLink } from "react-router-dom";
 import { navContent, navContentWrapper } from "./NavContent.css";
 

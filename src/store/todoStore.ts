@@ -2,7 +2,7 @@ import { v4 } from "uuid";
 import { create } from "zustand";
 import { devtools } from "zustand/middleware";
 import { immer } from "zustand/middleware/immer";
-import { getCurrentDate } from "../utils/func";
+import { getCurrentDate } from "../share/utils/func";
 
 export interface ITodo {
   id: string;
@@ -60,6 +60,12 @@ export const useTodoStore = create<ITodoStore>()(
       addTodo: (todo: ITodo) =>
         set((state: ITodoStore) => {
           state.todos.push(todo);
+        }),
+      toggleTodoDone: (todoId: string) =>
+        set((state: ITodoStore) => {
+          state.todos = state.todos.map((todo: ITodo) =>
+            todo.id === todoId ? { ...todo, done: !todo.done } : todo
+          );
         }),
     })),
     { content: "todoStore" }

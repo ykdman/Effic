@@ -1,7 +1,9 @@
 import React, { memo } from "react";
-import MyTarget from "./components/MyTarget/MyTarget";
+import MyTarget from "../../feature/target/ui/MyTarget/MyTarget";
 import MyTodo from "./components/MyTodo/MyTodo";
-import { homeSection, promiseArea, targetArea, taskArea } from "./Home.css";
+import { homeSection, noteArea, targetArea, taskArea } from "./Home.css";
+import { MyNote } from "../../feature/notes/ui";
+
 const Home: React.FC = () => {
   return (
     <section className={homeSection}>
@@ -11,7 +13,9 @@ const Home: React.FC = () => {
       <div className={targetArea}>
         <MyTarget />
       </div>
-      <div className={promiseArea}>promise</div>
+      <div className={noteArea}>
+        <MyNote />
+      </div>
     </section>
   );
 };

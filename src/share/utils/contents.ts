@@ -3,5 +3,5 @@ import { TContent } from "../types/index.ts";
 export const contents: TContent[] = [
   { name: "ToDo", path: "/todo" },
   { name: "Calender", path: "/calender" },
-  { name: "Guide", path: "/guide" },
+  { name: "Timer", path: "/timer" },
 ];
