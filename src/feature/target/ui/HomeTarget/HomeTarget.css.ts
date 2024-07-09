@@ -16,7 +16,7 @@ export const targetContent = style({
 });
 
 export const targetContentSpan = style({
-  fontSize: vars.fontSize.T3,
+  fontSize: vars.fontSize.T2,
   wordBreak: "break-word",
 });
 export const targetContentInput = style({

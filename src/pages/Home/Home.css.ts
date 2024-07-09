@@ -25,7 +25,7 @@ export const homeSection = style({
 
 export const targetArea = style({
   gridArea: "target",
-  width: "100%", // 원하는 넓이로 설정
+  width: "40rem", // 원하는 넓이로 설정
   // maxWidth: "600px", // 최대 넓이 설정
   height: "100%", // 동일한 높이 설정
   border: "1px solid black",
@@ -40,10 +40,10 @@ export const targetArea = style({
 
 export const taskArea = style({
   gridArea: "task",
-  width: "100%", // 원하는 넓이로 설정
+  width: "100%",
 
-  // maxWidth: "1200px", // 최대 넓이 설정
   minWidth: "max-content",
+  maxWidth: "83.2rem",
   height: "100%", // 동일한 높이 설정
   border: "1px solid black",
   backgroundColor: vars.color.white,
@@ -57,7 +57,7 @@ export const taskArea = style({
 export const noteArea = style({
   gridArea: "promise",
   minHeight: "450px",
-  width: "100%",
+  width: "40rem",
   // maxWidth: "600px",
   height: "auto",
   minWidth: "400px",

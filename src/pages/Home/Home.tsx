@@ -1,8 +1,9 @@
 import React, { memo } from "react";
 import MyTarget from "../../feature/target/ui/MyTarget/MyTarget";
-import MyTodo from "./components/MyTodo/MyTodo";
+
 import { homeSection, noteArea, targetArea, taskArea } from "./Home.css";
 import { MyNote } from "../../feature/notes/ui";
+import MyTodo from "../../feature/todo/ui/MyTodo/MyTodo";
 
 const Home: React.FC = () => {
   return (
