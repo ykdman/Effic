@@ -11,6 +11,7 @@ interface INoteState {
   notes: TNote[];
   activeNote: TNote;
   isNew: boolean;
+  noteModalisOpen: boolean;
 }
 
 interface INoteAction {
@@ -24,6 +25,8 @@ interface INoteAction {
   ) => void;
   setIsNew: () => void;
   setIsExist: () => void;
+  noteModalOpen: () => void;
+  noteModalClose: () => void;
 }
 
 const initialNoteState: TNote[] = [
@@ -54,6 +57,7 @@ export const useNoteStore = create<INoteState & INoteAction>()(
       isNew: false,
       notes: initialNoteState,
       activeNote: initialNoteState[0],
+      noteModalisOpen: false,
       addNote: ({ title, content }: { title: string; content: string }) =>
         set((state: INoteState) => {
           state.notes.push({
@@ -94,6 +98,14 @@ export const useNoteStore = create<INoteState & INoteAction>()(
       setIsExist: () =>
         set((state: INoteState) => {
           state.isNew = false;
+        }),
+      noteModalOpen: () =>
+        set((state: INoteState) => {
+          state.noteModalisOpen = true;
+        }),
+      noteModalClose: () =>
+        set((state: INoteState) => {
+          state.noteModalisOpen = false;
         }),
     })),
     { name: "noteStore" }

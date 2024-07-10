@@ -56,6 +56,10 @@ export const vars = createGlobalTheme(":root", {
     medium: "1.5rem",
     basic: "1rem",
     L1: "8rem",
+    card: {
+      width: "15rem",
+      heigth: "15rem",
+    },
   },
   buttons: {
     width: "2.5rem",
@@ -64,6 +68,7 @@ export const vars = createGlobalTheme(":root", {
   shadow: {
     basic: "10px 10px 10px rgb(0,0,0, 0.3)",
     input: "3px 3px 3px rgb(0,0,0, 0.2)",
+    card: "3px 3px 2px rgb(0,0,0, 0.3)",
   },
 });
 

@@ -1,4 +1,5 @@
 import { style } from "@vanilla-extract/css";
+import { vars } from "../../../../style.css";
 
 export const myTodoWrapper = style({
   display: "flex",
@@ -11,7 +12,11 @@ export const myTodoWrapper = style({
 
 export const todoCardWrapper = style({
   border: "1px solid black",
-  padding: "10px 10px",
-  width: "100%",
+  padding: vars.space.big2,
+  width: "75rem",
   height: `20rem`,
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  borderRadius: 10,
 });
