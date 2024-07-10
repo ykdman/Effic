@@ -1,6 +1,5 @@
 import React, { ChangeEvent, memo, useEffect, useState } from "react";
 import { useNoteStore } from "../../../../store/noteStore";
-import useModalStore from "../../../../store/modalStore";
 import {
   closeButton,
   closeButtonArea,
@@ -30,10 +29,11 @@ const NoteInfoModal: React.FC<TNtoeInfoModalProps> = ({
   isNew,
   activeNote,
 }) => {
-  const modalOpen = useModalStore((state) => state.isOpen);
-  const modalClose = useModalStore((state) => state.modalClose);
   const addNewNote = useNoteStore((state) => state.addNote);
   const updateNote = useNoteStore((state) => state.updateNote);
+
+  const modalOpen = useNoteStore((state) => state.noteModalisOpen);
+  const modalClose = useNoteStore((state) => state.noteModalClose);
 
   const [currentNoteTitle, setCurrentNoteTitle] = useState<string>(
     isNew ? "" : activeNote.title

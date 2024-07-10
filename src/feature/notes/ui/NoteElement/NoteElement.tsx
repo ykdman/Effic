@@ -9,14 +9,13 @@ import {
 import { MdInfo } from "react-icons/md";
 import { FaRegTrashAlt } from "react-icons/fa";
 import { useNoteStore } from "../../../../store/noteStore";
-import useModalStore from "../../../../store/modalStore";
 import { button } from "../../../../style.css";
 
 type TNoteElemntProps = Pick<TNote, "id" | "title">;
 
 const NoteElement: React.FC<TNoteElemntProps> = ({ id, title }) => {
   const setActiveNoteAction = useNoteStore((state) => state.setActiveNote);
-  const noteInfoModalOpen = useModalStore((state) => state.modalOpen);
+  const noteInfoModalOpen = useNoteStore((state) => state.noteModalOpen);
   const setIsExistNote = useNoteStore((state) => state.setIsExist);
 
   const removeNote = useNoteStore((state) => state.removeNote);
