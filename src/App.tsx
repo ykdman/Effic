@@ -4,7 +4,6 @@ import { appContainer } from "./App.css";
 import Home from "./pages/Home/Home";
 import TodoPage from "./pages/TodoPage/TodoPage";
 import CalenderPage from "./pages/Calender/CalenderPage";
-import TimerPage from "./pages/Timer/TimerPage";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
@@ -22,10 +21,6 @@ const router = createBrowserRouter([
       {
         path: "/calender",
         element: <CalenderPage />,
-      },
-      {
-        path: "/timer",
-        element: <TimerPage />,
       },
     ],
   },
