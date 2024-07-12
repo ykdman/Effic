@@ -14,5 +14,12 @@ export const noteElementWrapper = style({
   flexDirection: "column",
   alignItems: "center",
   justifyContent: "flex-start",
-  height: "100%",
+  height: "auto",
+  width: "100%",
+  maxWidth: "600px",
+  "@media": {
+    "screen and (max-width: 768px)": {
+      width: "100%",
+    },
+  },
 });

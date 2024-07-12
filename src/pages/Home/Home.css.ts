@@ -4,63 +4,57 @@ import { vars } from "../../style.css";
 export const homeSection = style({
   display: "grid",
   gridTemplateAreas: `
-    ".  task  task  ."
-    ".  target  promise ."    
+    "task"
+    "target"
+    "note"
   `,
-
-  justifyItems: "center",
-  // justifyContent: "center",
-  // gridTemplateRows: "1fr 1fr",
-  gridTemplateColumns: "300px 1fr 1fr 300px",
-  gridAutoColumns: "minmax(300px, auto)",
-  gridAutoRows: "minmax(200px, auto)",
+  gridTemplateColumns: "1fr",
+  rowGap: "20px",
   padding: vars.space.big1,
   minHeight: "max-content",
-  // maxWidth: "120rem",
   height: "100vh",
-  // gap: 10, // 간격 설정
-  rowGap: 20,
-  columnGap: 10,
+  "@media": {
+    "screen and (min-width: 768px)": {
+      gridTemplateAreas: `
+        "task task"
+        "target note"
+      `,
+      gridTemplateColumns: "1fr 1fr",
+      columnGap: "20px",
+    },
+    "screen and (min-width: 1200px)": {
+      gridTemplateAreas: `
+        ". task task ."
+        ". target note ."
+      `,
+      gridTemplateColumns: "300px 1fr 1fr 300px",
+    },
+  },
 });
 
 export const targetArea = style({
   gridArea: "target",
-  width: "40rem", // 원하는 넓이로 설정
-  // maxWidth: "600px", // 최대 넓이 설정
-  height: "100%", // 동일한 높이 설정
+  width: "100%",
+  height: "auto",
   border: "1px solid black",
   backgroundColor: vars.color.white,
   borderRadius: 20,
   overflow: "auto",
-  padding: `${vars.space.big2}`,
-  boxShadow: vars.shadow.basic,
-  minWidth: "400px",
-  minHeight: "450px",
-});
-
-export const taskArea = style({
-  gridArea: "task",
-  width: "100%",
-
-  minWidth: "max-content",
-  maxWidth: "83.2rem",
-  height: "100%", // 동일한 높이 설정
-  border: "1px solid black",
-  backgroundColor: vars.color.white,
-  borderRadius: 20,
   padding: vars.space.big2,
   boxShadow: vars.shadow.basic,
-  gridColumnStart: 2,
-  gridColumnEnd: 4,
-});
-
-export const noteArea = style({
-  gridArea: "promise",
+  minWidth: "300px",
   minHeight: "450px",
-  width: "40rem",
-  // maxWidth: "600px",
+  "@media": {
+    "screen and (max-width: 768px)": {
+      minWidth: "100%",
+    },
+  },
+});
+export const noteArea = style({
+  gridArea: "note",
+  minHeight: "450px",
+  width: "100%",
   height: "auto",
-  minWidth: "400px",
   border: `1px solid black`,
   backgroundColor: "#E7F0DC",
   borderRadius: 20,
@@ -69,4 +63,22 @@ export const noteArea = style({
   overflow: "auto",
   display: "flex",
   flexDirection: "column",
+  alignItems: "center",
+  "@media": {
+    "screen and (max-width: 768px)": {
+      minWidth: "100%",
+    },
+  },
+});
+
+export const taskArea = style({
+  gridArea: "task",
+  width: "100%",
+  height: "auto",
+  border: "1px solid black",
+  backgroundColor: vars.color.white,
+  borderRadius: 20,
+  padding: vars.space.big2,
+  boxShadow: vars.shadow.basic,
+  maxWidth: "none",
 });
