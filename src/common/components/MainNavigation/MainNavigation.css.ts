@@ -5,29 +5,27 @@ export const navigationWrapper = style({
   zIndex: 100,
   width: "100%",
   height: "76px",
-  minHeight: "max-content",
   display: "flex",
   alignItems: "center",
   padding: vars.space.medium,
   justifyContent: "space-between",
-
   position: "fixed",
+  top: 0,
   backgroundColor: vars.color.primary,
-  boxShadow: "10px 10px 10px rgb(0, 0, 0, 0.3)",
-  borderRadius: 5,
+  boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
+  borderRadius: "0 0 10px 10px",
 });
 
 export const header = style({
-  // marginLeft: vars.space.big2,
+  display: "flex",
+  alignItems: "center",
   marginRight: vars.space.big2,
-  flexGrow: "0.5",
-  minWidth: "max-content",
 });
+
 export const title = style({
   fontFamily: vars.font.title.family,
   fontWeight: vars.font.title.weight,
   fontStyle: vars.font.title.style,
-
   fontSize: vars.fontSize.big1,
   display: "flex",
   justifyContent: "center",
@@ -36,7 +34,8 @@ export const title = style({
 
 export const titleText = style({
   color: vars.color.forest.sub,
-  transition: "color .2s",
+  textDecoration: "none",
+  transition: "color 0.2s",
   ":hover": {
     color: vars.color.forest.light,
   },
@@ -47,18 +46,16 @@ export const navContents = style({
   flexDirection: "row",
   alignItems: "center",
   justifyContent: "space-around",
-  minWidth: "max-content",
-  width: "300px",
-  flexGrow: "1",
+  flexGrow: 1,
+  marginRight: vars.space.big2,
 });
 
 export const headerSub = style({
   fontFamily: vars.font.tiny.family,
   color: vars.color.forest.basic,
   fontSize: vars.fontSize.T2,
-  flexGrow: "0.7",
-  padding: `0 ${vars.space.big1}`,
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
+  padding: `0 ${vars.space.big1}`,
 });

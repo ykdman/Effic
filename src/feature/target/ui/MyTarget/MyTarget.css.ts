@@ -15,5 +15,11 @@ export const targetWrapper = style({
   justifyContent: "space-around",
   alignItems: "flex-start",
   width: "100%",
-  height: "100%",
+  height: "auto",
+  maxWidth: "600px",
+  "@media": {
+    "screen and (max-width: 768px)": {
+      width: "100%",
+    },
+  },
 });
