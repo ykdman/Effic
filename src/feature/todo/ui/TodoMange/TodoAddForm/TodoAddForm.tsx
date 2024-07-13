@@ -4,14 +4,18 @@ import {
   datePickerArea,
   optionSelectArea,
   priorityPickerArea,
+  resetButton,
+  saveButton,
   todoContentArea,
   todoFormWrapper,
+  todoInput,
 } from "./TodoAddForm.css";
 
 import DatePicker from "react-datepicker";
 import { MdAdd, MdClear } from "react-icons/md";
 import { useTodoStore } from "../../../../../store/todoStore";
 import { v4 } from "uuid";
+import { button } from "../../../../../style.css";
 
 const TodoAddForm: React.FC = () => {
   const [todoContent, setTodoContent] = useState<string>("");
@@ -76,6 +80,7 @@ const TodoAddForm: React.FC = () => {
           value={todoContent}
           required
           placeholder="할 일을 입력해주세요!"
+          className={todoInput}
         />
       </div>
 
@@ -106,11 +111,18 @@ const TodoAddForm: React.FC = () => {
       </div>
 
       <p className={buttonArea}>
-        <button type="submit">
-          <MdAdd />
+        <button
+          type="button"
+          onClick={handleResetButton}
+          className={`${button} ${resetButton}`}
+        >
+          {/* <MdClear /> */}
+          초기화
         </button>
-        <button type="button" onClick={handleResetButton}>
-          <MdClear />
+        <button type="submit" className={`${button} ${saveButton}`}>
+          {/* <MdAdd />
+           */}
+          저장
         </button>
       </p>
     </form>

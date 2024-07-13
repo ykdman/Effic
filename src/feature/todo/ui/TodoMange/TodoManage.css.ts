@@ -4,7 +4,7 @@ import { vars } from "../../../../style.css";
 export const todoManageWrapper = style({
   border: "1px solid black",
   width: "100%",
-  // height: "auto",
+  height: "auto",
   minHeight: "500px",
   maxWidth: "600px",
   borderRadius: 15,
@@ -16,5 +16,4 @@ export const todoManageWrapper = style({
 
 export const title = style({
   marginTop: vars.space.big1,
-  marginBottom: vars.space.big1,
 });

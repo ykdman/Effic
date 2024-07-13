@@ -5,9 +5,8 @@ import TodoAddForm from "./TodoAddForm/TodoAddForm";
 const TodoManage: React.FC = () => {
   return (
     <section className={todoManageWrapper}>
-      <p className={title}>
-        <h2>Manage Todo</h2>
-      </p>
+      <h2 className={title}>Manage Todo</h2>
+
       <TodoAddForm />
     </section>
   );
