@@ -3,10 +3,14 @@ import RootLayout from "./layout/RootLayout";
 import { appContainer } from "./App.css";
 import Home from "./pages/Home/Home";
 import TodoPage from "./pages/TodoPage/TodoPage";
-import CalenderPage from "./pages/Calender/CalenderPage";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+import "react-datepicker/dist/react-datepicker.css";
+
+import { registerLocale, setDefaultLocale } from "react-datepicker";
+import { ko } from "date-fns/locale/ko";
+registerLocale("ko", ko);
 
 const router = createBrowserRouter([
   {
@@ -17,10 +21,6 @@ const router = createBrowserRouter([
       {
         path: "/todo",
         element: <TodoPage />,
-      },
-      {
-        path: "/calender",
-        element: <CalenderPage />,
       },
     ],
   },

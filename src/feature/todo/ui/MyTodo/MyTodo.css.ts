@@ -9,15 +9,16 @@ export const myTodoWrapper = style({
   width: "100%",
   height: "100%",
   padding: vars.space.big2,
-  boxShadow: vars.shadow.basic,
+  // boxShadow: vars.shadow.basic,
 });
 
 export const todoCardWrapper = style({
-  border: "1px solid black",
+  // border: "1px solid black",
   padding: vars.space.big2,
   width: "100%",
   height: "auto",
-  maxWidth: "600px",
+  maxWidth: "900px",
+  // minWidth: "max-content",
   display: "flex",
   justifyContent: "center",
   alignItems: "center",

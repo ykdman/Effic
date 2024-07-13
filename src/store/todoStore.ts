@@ -2,13 +2,13 @@ import { v4 } from "uuid";
 import { create } from "zustand";
 import { devtools } from "zustand/middleware";
 import { immer } from "zustand/middleware/immer";
-import { getCurrentDate } from "../share/utils/func";
 
 export interface ITodo {
   id: string;
   content: string;
   priority: number;
   done: boolean;
+  date: Date;
 }
 
 interface ITodoStore {
@@ -27,24 +27,28 @@ const initialTodos: ITodo[] = [
     content: "밥먹기",
     priority: 1,
     done: false,
+    date: new Date(),
   },
   {
     id: "todo-kdman-2",
     content: "잠자기",
     priority: 2,
     done: false,
+    date: new Date(),
   },
   {
     id: "todo-kdman-3",
     content: "장보기",
     priority: 3,
     done: false,
+    date: new Date(),
   },
   {
     id: v4(),
     content: "운동하기",
     priority: 3,
     done: false,
+    date: new Date(),
   },
 ];
 

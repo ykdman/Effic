@@ -7,6 +7,7 @@ export const todoCardContent = style({
   width: vars.sizeRem.card.width,
   height: vars.sizeRem.card.heigth,
   marginBottom: "2rem",
+  marginRight: "1rem",
   borderRadius: 15,
   padding: vars.space.medium,
   boxShadow: vars.shadow.card,

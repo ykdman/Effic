@@ -10,8 +10,8 @@ const Todos: React.FC = () => {
   return (
     <div className={swiperWrapper}>
       <Swiper
-        spaceBetween={30}
-        slidesPerView={4}
+        spaceBetween={115}
+        slidesPerView={2.5}
         centeredSlides={true}
         autoplay={false}
         pagination={{

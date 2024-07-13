@@ -2,7 +2,7 @@ import { style } from "@vanilla-extract/css";
 
 export const appContainer = style({
   width: "100vw",
-  height: "100$",
+  height: "100vh",
   minHeight: "max-content",
 });
 

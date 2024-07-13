@@ -96,3 +96,18 @@ export const button = style({
     opacity: 0.8,
   },
 });
+
+export const todoPriorityFirst = style({
+  backgroundColor: vars.color.primary,
+  color: vars.color.white,
+});
+
+export const todoPrioritySecond = style({
+  backgroundColor: vars.color.forest.light,
+  color: vars.color.white,
+});
+
+export const todoPriorityThird = style({
+  backgroundColor: vars.color.forest.sub,
+  color: vars.color.white,
+});

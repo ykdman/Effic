@@ -1,13 +1,16 @@
 import React from "react";
-import { todoPage, todoPageContent } from "./TodoPage.css";
+import { todoPageSection, todoPageContent } from "./TodoPage.css";
 import { TodoManage, TodoDisplay } from "../../feature/todo/ui";
+import { useTodoStore } from "../../store/todoStore";
 
 const TodoPage = () => {
+  const todos = useTodoStore((state) => state.todos);
+
   return (
-    <section className={todoPage}>
+    <section className={todoPageSection}>
       <div className={todoPageContent}>
         <TodoManage />
-        <TodoDisplay />
+        <TodoDisplay todos={todos} />
       </div>
     </section>
   );

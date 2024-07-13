@@ -9,7 +9,6 @@ export const navigationWrapper = style({
   alignItems: "center",
   padding: vars.space.medium,
   justifyContent: "space-between",
-  position: "fixed",
   top: 0,
   backgroundColor: vars.color.primary,
   boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
