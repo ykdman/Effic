@@ -6,6 +6,7 @@ export const modalPortal = style({
   // alignItems: "center",
   // top: "50%",
   // left: "50%",
+  position: "relative",
   width: "100vw",
   height: "100vh",
 });

@@ -11,7 +11,7 @@ export interface ITodo {
   date: Date;
 }
 
-interface ITodoStore {
+export interface ITodoStore {
   todos: ITodo[];
   todoModalIsOpen: boolean;
   activeTodo: ITodo;

@@ -33,7 +33,7 @@ export const optionSelectArea = style({
   width: "100%",
   margin: `${vars.space.big1} auto`,
   maxWidth: "400px",
-  height: "5rem",
+  height: "6rem",
 });
 
 export const datePickerArea = style({

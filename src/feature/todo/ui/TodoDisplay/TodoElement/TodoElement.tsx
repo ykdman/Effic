@@ -1,4 +1,7 @@
 import React from "react";
+import { todoContent, todoElementWrappar } from "./TodoElement.css";
+import { FaRegTrashAlt } from "react-icons/fa";
+import TodoElementWidget from "../TodoElementWidget/TodoElementWidget";
 
 interface Props {
   id: string;
@@ -16,11 +19,15 @@ const TodoElement: React.FC<Props> = ({
   priority,
 }) => {
   return (
-    <li>
-      <h3>{content}</h3>
-      <p>{date.toDateString()}</p>
-      <p>{done ? "Done" : "Not Done"}</p>
-      <p>{priority}</p>
+    <li key={id} className={todoElementWrappar}>
+      <div className={todoContent}>
+        <h3>{content}</h3>
+        <p>수행일 : {date.toLocaleString("ko").split("T")[0]}</p>
+      </div>
+      <TodoElementWidget todoId={id} />
+
+      {/* <p>{done ? "Done" : "Not Done"}</p> */}
+      {/* <p>{priority}</p> */}
     </li>
   );
 };
